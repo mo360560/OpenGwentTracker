@@ -13,7 +13,7 @@ namespace Test.Classes
         private String name;
         private byte level, rank;
         private int MMR;
-        private Dictionary<byte, Card> hand, board, deck, banished;
+        private Dictionary<byte, Card> hand, board, deck, graveyard, banished;
         private Dictionary<CardPlacement, Dict> placements;
 
         public PlayerInfo(String name, byte level, byte rank, int MMR)
@@ -22,6 +22,7 @@ namespace Test.Classes
             placements.Add(CardPlacement.HAND, hand);
             placements.Add(CardPlacement.BOARD, board);
             placements.Add(CardPlacement.DECK, deck);
+            placements.Add(CardPlacement.GRAVEYARD, graveyard);
             placements.Add(CardPlacement.BANISHED, banished);
         }
         public void AddCard(CardPlacement dest, byte card_ID, int template_ID)
