@@ -24,6 +24,7 @@ namespace Test
         PlayerInfo user_info, opponent_info;
         PlayerWindow user_window, opponent_window;
         WindowsManager windows_manager;
+        LogParser log_parser;
 
         public MenuWindow()
         {
@@ -32,6 +33,8 @@ namespace Test
             opponent_window = new PlayerWindow();
             windows_manager = new WindowsManager(this, user_window, opponent_window);
             windows_manager.SetInUse(this, true);
+            log_parser = new LogParser();
+            log_parser.Parse();
         }
         
     }
