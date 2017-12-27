@@ -32,6 +32,7 @@ namespace Test
             opponent_window = new PlayerWindow();
             windows_manager = new WindowsManager(this, user_window, opponent_window);
             windows_manager.SetInUse(this, true);
+            opponent_window.SetTB("You can just display debug text like this");
         }
         
     }
