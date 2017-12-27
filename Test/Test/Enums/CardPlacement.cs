@@ -8,8 +8,8 @@ namespace Test.Enums
 {
     public enum CardPlacement
     {
-        HAND,
         BOARD,
+        HAND,        
         DECK,
         GRAVEYARD,
         BANISHED

@@ -13,14 +13,14 @@ namespace Test.Classes
         private String name;
         private byte level, rank;
         private int MMR;
-        private Dictionary<byte, Card> hand, board, deck, graveyard, banished;
+        private Dictionary<byte, Card> board, hand, deck, graveyard, banished;
         private Dictionary<CardPlacement, Dict> placements;
 
         public PlayerInfo(String name, byte level, byte rank, int MMR)
         {
             this.name = name; this.level = level; this.rank = rank; this.MMR = MMR;
-            placements.Add(CardPlacement.HAND, hand);
             placements.Add(CardPlacement.BOARD, board);
+            placements.Add(CardPlacement.HAND, hand);            
             placements.Add(CardPlacement.DECK, deck);
             placements.Add(CardPlacement.GRAVEYARD, graveyard);
             placements.Add(CardPlacement.BANISHED, banished);

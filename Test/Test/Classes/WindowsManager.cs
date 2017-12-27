@@ -77,7 +77,7 @@ namespace Test.Classes
 
         private class WindowSettings
         {
-            public bool in_use = false;
+            public bool in_use = true;
         }
 
     }    
