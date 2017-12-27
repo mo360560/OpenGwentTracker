@@ -11,6 +11,7 @@ namespace Test.Enums
         HAND,
         BOARD,
         DECK,
+        GRAVEYARD,
         BANISHED
     }
 }
