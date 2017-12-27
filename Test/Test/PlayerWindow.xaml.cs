@@ -22,5 +22,7 @@ namespace Test
         {
             InitializeComponent();
         }
+
+        public void SetTB(String text) => TB.Text = text;
     }
 }

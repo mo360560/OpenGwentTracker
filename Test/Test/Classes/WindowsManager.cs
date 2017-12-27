@@ -64,7 +64,7 @@ namespace Test.Classes
         private bool LayOver(String name) => windows_to_lay_over.Contains(name);
         private void HideAllWindows()
         {
-            foreach (Window w in windows) w.Hide();
+            //foreach (Window w in windows) w.Hide();
         }
         private void ShowWindowsInUse()
         {

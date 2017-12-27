@@ -1,3 +1,5 @@
 
 *.cache
 Test/Test/bin/*
+*.exe
+*.exe
