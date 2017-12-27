@@ -33,12 +33,11 @@ namespace Test
             opponent_window = new PlayerWindow();
             windows_manager = new WindowsManager(this, user_window, opponent_window);
             windows_manager.SetInUse(this, true);
-<<<<<<< HEAD
+
             log_parser = new LogParser();
             log_parser.Parse();
-=======
+
             opponent_window.SetTB("You can just display debug text like this");
->>>>>>> a1c653ee6b6c6bdfc4b0b3147fac07288fd36d2d
         }
         
     }
