@@ -31,8 +31,7 @@ namespace Test.Classes
                 { 7, new Card("Mandrake", 0, CardPlacement.GRAVEYARD) },
                 { 8, new Card("Elven Mercenary", 0, CardPlacement.BANISHED) },
             };
-        }
-        
+        }  
         public void AddCard(CardPlacement dest, byte card_ID, int template_ID)
         {
             cards.Add(card_ID, new Card(template_ID, dest));

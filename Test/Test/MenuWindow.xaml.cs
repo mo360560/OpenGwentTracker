@@ -16,6 +16,7 @@ using System.Windows.Shapes;
 using Test.Classes;
 using System.Runtime.InteropServices;
 using System.Threading;
+using Test.Enums; //@TODO For testing, may not be needed later
 
 namespace Test
 {
@@ -33,12 +34,15 @@ namespace Test
             user_window = new PlayerWindow();
             opponent_window = new PlayerWindow();
             windows_manager = new WindowsManager(this, user_window, opponent_window);
-            windows_manager.SetInUse(this, true);
-            opponent_window.ShowPlayer(new PlayerInfo("Jane", 33, 19, 4033));
+            windows_manager.SetInUse(this, true);            
 
             log_parser = new LogParser();
             log_parser.Parse();
 
+            opponent_info = new PlayerInfo("Jane", 26, 18, 3999);
+            opponent_window.SetPlayer(opponent_info);
+            opponent_info.MoveCard(CardPlacement.BANISHED, 1);
+            opponent_window.Update();
         }        
     }
 }

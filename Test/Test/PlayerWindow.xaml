@@ -1,12 +1,11 @@
 ﻿<Window x:Class="Test.PlayerWindow"
-
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:local="clr-namespace:Test"
         mc:Ignorable="d"
-        Title="PlayerWindow" Height="360" Width="300">
+        WindowStyle="None"
+        Title="PlayerWindow" SizeToContent="WidthAndHeight" ResizeMode="NoResize">
     <Grid>
         
         <ListBox Name="CardsListBox" ItemsSource="{Binding Path=placement}">
@@ -17,13 +16,13 @@
                             <Setter Property="Template">
                                 <Setter.Value>
                                     <ControlTemplate TargetType="{x:Type GroupItem}">
-                                        <Expander IsExpanded="True">
+                                        <Expander IsExpanded="True" >
                                             <Expander.Header>
                                                 <StackPanel >
                                                     <TextBlock Text="{Binding Name}" />
                                                 </StackPanel>
                                             </Expander.Header>
-                                            <ItemsPresenter />
+                                            <ItemsPresenter IsEnabled="False" />
                                         </Expander>
                                     </ControlTemplate>
                                 </Setter.Value>
@@ -38,10 +37,10 @@
                         <Grid>
                             <Grid.ColumnDefinitions>
                                 <ColumnDefinition Width="20" />
-                                <ColumnDefinition Width="200" />
+                                <ColumnDefinition Width="Auto" />
                             </Grid.ColumnDefinitions>
-                            <TextBlock Grid.Column="0" Text="{Binding Path=power}"/>
-                            <TextBlock Grid.Column="1" Text="{Binding Path=name}"/>
+                            <TextBlock Grid.Column="0" Text="{Binding Path=power}" />
+                            <TextBlock Grid.Column="1" Text="{Binding Path=name}" />
                         </Grid>
                     </StackPanel>
                 </DataTemplate>

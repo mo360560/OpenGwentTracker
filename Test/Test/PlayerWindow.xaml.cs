@@ -20,16 +20,21 @@ namespace Test
 {
     public partial class PlayerWindow : Window
     {
-        ObservableCollection<Card> cards_list;
+        PlayerInfo player;
 
         public PlayerWindow()
         {
             InitializeComponent();
+            /*  To disable the ability to drag the window by clicking anywhere,
+                1. Remove IsEnable="False" from <ItemsPresenter IsEnabled="False" />
+                2. Remove WindowStyle="None"
+                3. Remove the next line */               
+            this.MouseLeftButtonDown += delegate { this.DragMove(); };
         }
-        public void ShowPlayer(PlayerInfo player)
+        public void SetPlayer(PlayerInfo player) => this.player = player;
+        public void Update()
         {
-            cards_list = new ObservableCollection<Card>(player.cards_list);            
-            ICollectionView view = CollectionViewSource.GetDefaultView(cards_list);
+            ICollectionView view = CollectionViewSource.GetDefaultView(player.cards_list);
             view.GroupDescriptions.Add(new PropertyGroupDescription("placement"));
             view.SortDescriptions.Add(new SortDescription("placement", ListSortDirection.Ascending));
             view.SortDescriptions.Add(new SortDescription("power", ListSortDirection.Descending));
