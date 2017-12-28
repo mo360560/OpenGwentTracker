@@ -1,5 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
+using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -18,11 +20,20 @@ namespace Test
 {
     public partial class PlayerWindow : Window
     {
+        ObservableCollection<Card> cards_list;
+
         public PlayerWindow()
         {
             InitializeComponent();
         }
-
-        public void SetTB(String text) => TB.Text = text;
+        public void ShowPlayer(PlayerInfo player)
+        {
+            cards_list = new ObservableCollection<Card>(player.cards_list);            
+            ICollectionView view = CollectionViewSource.GetDefaultView(cards_list);
+            view.GroupDescriptions.Add(new PropertyGroupDescription("placement"));
+            view.SortDescriptions.Add(new SortDescription("placement", ListSortDirection.Ascending));
+            view.SortDescriptions.Add(new SortDescription("power", ListSortDirection.Descending));
+            CardsListBox.ItemsSource = view;
+        }
     }
 }

@@ -29,16 +29,16 @@ namespace Test
         public MenuWindow()
         {
             InitializeComponent();
+
             user_window = new PlayerWindow();
             opponent_window = new PlayerWindow();
             windows_manager = new WindowsManager(this, user_window, opponent_window);
             windows_manager.SetInUse(this, true);
+            opponent_window.ShowPlayer(new PlayerInfo("Jane", 33, 19, 4033));
 
             log_parser = new LogParser();
             log_parser.Parse();
 
-            opponent_window.SetTB("You can just display debug text like this");
-        }
-        
+        }        
     }
 }

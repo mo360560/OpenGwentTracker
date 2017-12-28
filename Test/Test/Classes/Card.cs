@@ -7,16 +7,25 @@ using Test.Enums;
 
 namespace Test.Classes
 {
-    class Card
+    public class Card
     {
-        private String name;
+        public String name { get; set; }
         private short base_strength, buff, armor;
+        public short power { get { return (short)(base_strength + buff); } }
+        public CardPlacement placement { get; set; }
 
-        public Card(int template_ID)
+        public Card(int template_ID, CardPlacement placement)
         {
+            this.placement = placement;
             //here we browse database for card with given template_ID
-            name = "Test"; base_strength = buff = armor = 3;
+            name = "Test"; base_strength = buff = armor = 3;            
         }
+        //temporary constructor for testing:
+        public Card(String n, short bs, CardPlacement p)
+        {
+            name = n; base_strength = bs; buff = armor = 0; placement = p;
+        }
+
         public void ChangeStats(PowerChangeType change_type, short value_difference, bool ignore_armor)
         {
             switch (change_type)
@@ -51,6 +60,6 @@ namespace Test.Classes
             armor += value;
             if (armor < 0) armor = 0;
         }
-        public void Reset() => buff = 0;
+        //public void Reset() => buff = 0;
     }
 }
