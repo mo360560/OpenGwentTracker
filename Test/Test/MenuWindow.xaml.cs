@@ -35,7 +35,7 @@ namespace Test
             windows_manager.SetInUse(this, true);
 
             log_parser = new LogParser();
-            log_parser.Parse();
+            //log_parser.Parse();
 
             opponent_window.SetTB("You can just display debug text like this");
         }
