@@ -52,7 +52,8 @@
             <Setter Property="FontSize" Value="13" />
         </Style>
 
-        <!-- Expander ControlTemplate -->    
+        <!-- Expander ControlTemplate -->
+        <!-- based on: https://docs.microsoft.com/en-us/dotnet/framework/wpf/controls/expander-styles-and-templates -->    
         <ControlTemplate x:Key="ExpanderToggleButton" TargetType="{x:Type ToggleButton}">
             <Border x:Name="Border">
                 <Border.Background>
