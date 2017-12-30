@@ -6,10 +6,12 @@
         mc:Ignorable="d"
         WindowStyle="None"
         Title="PlayerWindow" SizeToContent="WidthAndHeight" MinWidth="195" ResizeMode="NoResize">
-    <Window.Background>
-        <ImageBrush x:Name="background" Stretch="Fill"/>
-    </Window.Background>    
-    <Grid Name="WindowGrid">        
+
+    <Grid Name="WindowGrid">
+        <Grid.Background>
+            <ImageBrush ImageSource="/Test;component/Images/bg2.png" AlignmentX="Left" 
+          AlignmentY="Top" Stretch="None" />
+        </Grid.Background>
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto" />
             <RowDefinition Height="Auto" />

@@ -35,7 +35,6 @@ namespace Test
         {
             this.player = player;
             UsernameBox.Text = player.player_info;
-            background.ImageSource = new BitmapImage(new Uri(@"pack://application:,,,/Test;component/Images/bg1.png"));
             CreateBorder(player.type);
         }
 
