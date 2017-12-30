@@ -21,15 +21,20 @@ namespace Test
     public partial class PlayerWindow : Window
     {
         PlayerInfo player;
+        HashSet<CardPlacement> displayed;
 
         public PlayerWindow()
         {
             InitializeComponent();
             /*  To disable the ability to drag the window by clicking anywhere,
-                1. Remove IsEnable="False" from <ItemsPresenter IsEnabled="False" />
+                1. Remove IsEnabled="False" from <ItemsPresenter IsEnabled="False" />
                 2. Remove WindowStyle="None"
                 3. Remove the next line */               
             MouseLeftButtonDown += delegate { DragMove(); };
+            displayed = new HashSet<CardPlacement> {
+                //CardPlacement.HAND, CardPlacement.BOARD,
+                CardPlacement.DECK, CardPlacement.GRAVEYARD, CardPlacement.BANISHED
+            };
         }
         public void SetPlayer(PlayerInfo player)
         {
@@ -37,16 +42,16 @@ namespace Test
             UsernameBox.Text = player.player_info;
             CreateBorder(player.type);
         }
-
+        public void SetDisplayed(HashSet<CardPlacement> displayed) => this.displayed = displayed;
         public void Update()
-        {            
-            ICollectionView view = CollectionViewSource.GetDefaultView(player.cards_list);
+        {
+            List<Card> all_cards = player.cards_list;
+            ICollectionView view = CollectionViewSource.GetDefaultView(all_cards.Where(c => (displayed.Contains(c.placement))));
             view.GroupDescriptions.Add(new PropertyGroupDescription("placement"));
             view.SortDescriptions.Add(new SortDescription("placement", ListSortDirection.Ascending));
             view.SortDescriptions.Add(new SortDescription("power", ListSortDirection.Descending));
             CardsListBox.ItemsSource = view;
         }
-
         private void CreateBorder(PlayerType type)
         {            
             String horizontal = "border_horizontal_";
@@ -63,7 +68,6 @@ namespace Test
             AddImage(LL, 3, 2, true);
 
         }
-
         private void AddImage(String file, byte row, byte column, bool mirror)
         {
             Image i = new Image();
