@@ -8,6 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("images/border_vertical_red.png")]
+[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("images/border_corner_ll_blue.png")]
+[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("images/border_corner_ll_red.png")]
 
 

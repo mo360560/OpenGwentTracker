@@ -9,7 +9,7 @@
     <Window.Background>
         <ImageBrush x:Name="background" Stretch="Fill"/>
     </Window.Background>    
-    <Grid>        
+    <Grid Name="WindowGrid">        
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto" />
             <RowDefinition Height="Auto" />
@@ -20,34 +20,9 @@
             <ColumnDefinition Width="Auto" />
             <ColumnDefinition Width="7" />
         </Grid.ColumnDefinitions>
-        <Image Name="TopBorder" Grid.Row="0" Grid.Column="1" Source="/Test;component/Images/border_horizontal_red.png"
-               VerticalAlignment="Top" Height="7" Stretch="Fill" />
-        <Image Name="LUCorner" Grid.Row="0" Grid.Column="0" Source="/Test;component/Images/border_corner_LU_red.png"
-               Height="{Binding ActualHeight, ElementName=Row1}" Stretch="Fill" />
-        <Image Name="RUCorner" Grid.Row="0" Grid.Column="2" Source="/Test;component/Images/border_corner_LU_red.png"
-               Height="{Binding ActualHeight, ElementName=Row1}" Stretch="Fill" RenderTransformOrigin="0.5,0.5">
-            <Image.RenderTransform>
-                <ScaleTransform ScaleX="-1"/>
-            </Image.RenderTransform>
-        </Image>
-        <Image Name="LeftBorder" Grid.Row="1" Grid.Column="0" Source="/Test;component/Images/border_vertical_red.png"
-               HorizontalAlignment="Left" Height="{Binding ActualHeight, ElementName=CardListBox}" Stretch="Fill"/>
-        <Image Name="RightBorder" Grid.Row="1" Grid.Column="2" Source="/Test;component/Images/border_vertical_red.png"
-               HorizontalAlignment="Left" Height="{Binding ActualHeight, ElementName=CardListBox}" Stretch="Fill"/>
-        <Image Name="BottomBorder" Grid.Row="3" Grid.Column="1" Source="/Test;component/Images/border_horizontal_red.png"
-               VerticalAlignment="Top" Height="7" Stretch="Fill" />
-        <Image Name="LLCorner" Grid.Row="3" Grid.Column="0" Source="/Test;component/Images/border_corner_LL_red.png"
-               Height="7" Stretch="Fill" />
-        <Image Name="RLCorner" Grid.Row="3" Grid.Column="2" Source="/Test;component/Images/border_corner_LL_red.png"
-               Height="7" Stretch="Fill" RenderTransformOrigin="0.5,0.5">
-            <Image.RenderTransform>
-                <ScaleTransform ScaleX="-1"/>
-            </Image.RenderTransform>
-        </Image>
-
         <TextBlock Name="Row1" Grid.Row="0" Grid.Column="1" />
         <TextBlock Grid.Row="0" Grid.Column="1" Margin="10,15,10,0" Name="UsernameBox" Background="Transparent" Style="{StaticResource PlayerInfoStyle}"/>
-        <ListBox Grid.Row="1" Grid.Column="1" Margin="10,0,10,10" Name="CardsListBox" ItemsSource="{Binding Path=placement}" 
+        <ListBox Grid.Row="1" Grid.Column="1" Name="CardsListBox" ItemsSource="{Binding Path=placement}" 
                  Background="Transparent" BorderBrush="Transparent">
             <ListBox.GroupStyle>
                 <GroupStyle>
