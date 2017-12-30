@@ -49,56 +49,43 @@ namespace Test
         }
 
         private void CreateBorder(PlayerType type)
-        {
-            ScaleTransform scale = new ScaleTransform();
-            scale.ScaleX = -1;
+        {            
             String horizontal = "border_horizontal_";
             String LU = "border_corner_LU_";
             String vertical = "border_vertical_";
             String LL = "border_corner_LL_";
+            AddImage(horizontal, 0, 1, false);
+            AddImage(LU, 0, 0, false);
+            AddImage(LU, 0, 2, true);
+            AddImage(vertical, 1, 0, true);
+            AddImage(vertical, 1, 2, false);
+            AddImage(horizontal, 3, 1, false);
+            AddImage(LL, 3, 0, false);
+            AddImage(LL, 3, 2, true);
 
-            Image i = SetImage(horizontal, 0, 1);
-            i.VerticalAlignment = VerticalAlignment.Top;
-            WindowGrid.Children.Add(i);
-
-            i = SetImage(LU, 0, 0);
-            WindowGrid.Children.Add(i);
-
-            i = SetImage(LU, 0, 2);
-            i.RenderTransformOrigin = new Point(0.5, 0.5);
-            i.RenderTransform = scale;
-            WindowGrid.Children.Add(i);
-
-            i = SetImage(vertical, 1, 0);
-            i.RenderTransformOrigin = new Point(0.5, 0.5);
-            i.RenderTransform = scale;
-            WindowGrid.Children.Add(i);
-
-            i = SetImage(vertical, 1, 2);
-            WindowGrid.Children.Add(i);
-
-            i = SetImage(horizontal, 3, 1);
-            WindowGrid.Children.Add(i);
-
-            i = SetImage(LL, 3, 0);
-            WindowGrid.Children.Add(i);
-
-            i = SetImage(LL, 3, 2);
-            i.RenderTransformOrigin = new Point(0.5, 0.5);
-            i.RenderTransform = scale;
-            WindowGrid.Children.Add(i);
         }
 
-        private Image SetImage(String file, byte row, byte column)
+        private void AddImage(String file, byte row, byte column, bool mirror)
         {
             Image i = new Image();
             String type = "red.png";
             if (player.type == PlayerType.BLUE) type = "blue.png";
             i.Source = new BitmapImage(new Uri(@"pack://application:,,,/Test;component/Images/"+file+type));
+
             i.Stretch = Stretch.Fill;
             Grid.SetRow(i, row);
             Grid.SetColumn(i, column);
-            return i;
+
+            if (file == "border_horizontal_")
+                i.VerticalAlignment = VerticalAlignment.Top;            
+            if (mirror)
+            {
+                ScaleTransform scale = new ScaleTransform();
+                scale.ScaleX = -1;
+                i.RenderTransformOrigin = new Point(0.5, 0.5);
+                i.RenderTransform = scale;
+            }
+            WindowGrid.Children.Add(i);
         }
     }
 }
