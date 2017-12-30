@@ -30,10 +30,24 @@ namespace Test
                 2. Remove WindowStyle="None"
                 3. Remove the next line */               
             this.MouseLeftButtonDown += delegate { this.DragMove(); };
+           
+            //ImageBrush myBrush = new ImageBrush();
+            //myBrush.ImageSource = 
+            //    new BitmapImage(new Uri(@"pack://application:,,,/Test;component/Images/bg1.png"));
+            //this.Background = myBrush;
         }
-        public void SetPlayer(PlayerInfo player) => this.player = player;
-        public void Update()
+        public void SetPlayer(PlayerInfo player)
         {
+            this.player = player;
+            UsernameBox.Text = player.player_info;
+            if (player.type == PlayerType.RED)
+                background.ImageSource = new BitmapImage(new Uri(@"pack://application:,,,/Test;component/Images/bg_red.png"));
+            else background.ImageSource = new BitmapImage(new Uri(@"pack://application:,,,/Test;component/Images/bg_blue.png"));
+
+        }
+
+        public void Update()
+        {            
             ICollectionView view = CollectionViewSource.GetDefaultView(player.cards_list);
             view.GroupDescriptions.Add(new PropertyGroupDescription("placement"));
             view.SortDescriptions.Add(new SortDescription("placement", ListSortDirection.Ascending));

@@ -39,7 +39,7 @@ namespace Test
             log_parser = new LogParser();
             //log_parser.Parse();
 
-            opponent_info = new PlayerInfo("Jane", 26, 18, 3999);
+            opponent_info = new PlayerInfo("Jane", 26, 18, 3999, PlayerType.BLUE, "Nova deck #1");
             opponent_window.SetPlayer(opponent_info);
             opponent_info.MoveCard(CardPlacement.BANISHED, 1);
             opponent_window.Update();

@@ -65,3 +65,4 @@ C:\Users\ata\Documents\GitHub\OpenGwentTracker\Test\Test\obj\Debug\MenuWindow.ba
 C:\Users\ata\Documents\GitHub\OpenGwentTracker\Test\Test\obj\Debug\Test.g.resources
 C:\Users\ata\Documents\GitHub\OpenGwentTracker\Test\Test\obj\Debug\Test.Properties.Resources.resources
 C:\Users\ata\Documents\GitHub\OpenGwentTracker\Test\Test\obj\Debug\Test.csproj.GenerateResource.Cache
+E:\Documents\Programy\Tracker\OpenGwentTracker\Test\Test\obj\Debug\App.baml

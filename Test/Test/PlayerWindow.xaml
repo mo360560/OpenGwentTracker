@@ -6,9 +6,17 @@
         mc:Ignorable="d"
         WindowStyle="None"
         Title="PlayerWindow" SizeToContent="WidthAndHeight" ResizeMode="NoResize">
+    <Window.Background>
+        <ImageBrush x:Name="background" Stretch="Fill"/>
+    </Window.Background>
     <Grid>
-        
-        <ListBox Name="CardsListBox" ItemsSource="{Binding Path=placement}">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+        </Grid.RowDefinitions>
+        <TextBlock Grid.Row="0" Margin="10,10,10,0" Name="UsernameBox" Background="Transparent" Style="{StaticResource PlayerInfoStyle}"/>
+        <ListBox Grid.Row="1" Margin="10,0,10,10" Name="CardsListBox" ItemsSource="{Binding Path=placement}" 
+                 Background="Transparent" BorderBrush="Transparent">
             <ListBox.GroupStyle>
                 <GroupStyle>
                     <GroupStyle.ContainerStyle>
@@ -18,9 +26,7 @@
                                     <ControlTemplate TargetType="{x:Type GroupItem}">
                                         <Expander IsExpanded="True" >
                                             <Expander.Header>
-                                                <StackPanel >
-                                                    <TextBlock Text="{Binding Name}" />
-                                                </StackPanel>
+                                                <TextBlock Text="{Binding Name}" />                                               
                                             </Expander.Header>
                                             <ItemsPresenter IsEnabled="False" />
                                         </Expander>
@@ -39,8 +45,9 @@
                                 <ColumnDefinition Width="20" />
                                 <ColumnDefinition Width="Auto" />
                             </Grid.ColumnDefinitions>
-                            <TextBlock Grid.Column="0" Text="{Binding Path=power}" />
-                            <TextBlock Grid.Column="1" Text="{Binding Path=name}" />
+                            <TextBlock Grid.Column="0" Text="{Binding Path=power}" Style="{StaticResource CardPowerStyle}">
+                            </TextBlock>
+                            <TextBlock Grid.Column="1" Text="{Binding Path=name}" Style="{StaticResource CardNameStyle}"/>
                         </Grid>
                     </StackPanel>
                 </DataTemplate>

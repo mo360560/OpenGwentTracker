@@ -67,7 +67,9 @@
     <Compile Include="Classes\PlayerInfo.cs" />
     <Compile Include="Classes\WindowsManager.cs" />
     <Compile Include="Enums\CardPlacement.cs" />
+    <Compile Include="Enums\PlayerType.cs" />
     <Compile Include="Enums\PowerChangeType.cs" />
+    <Compile Include="Enums\PowerStatus.cs" />
     <Compile Include="MenuWindow.xaml.cs">
       <DependentUpon>MenuWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
@@ -98,6 +100,7 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
+    <Resource Include="Fonts\hinted-GWENT-ExtraBold.ttf" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -108,6 +111,14 @@
       <SubType>Designer</SubType>
     </None>
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Resource Include="Images\bg1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\bg_red.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\bg_blue.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

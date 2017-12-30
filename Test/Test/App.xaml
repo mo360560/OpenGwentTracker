@@ -4,6 +4,44 @@
              xmlns:local="clr-namespace:Test"
              StartupUri="MenuWindow.xaml">
     <Application.Resources>
-         
+        
+        <!-- Card power TextBlock style -->
+        <Style x:Key="CardPowerStyle" TargetType="{x:Type TextBlock}">
+            <Setter Property="TextElement.FontFamily" Value="Fonts/#GWENT" />
+            <Setter Property="Foreground" Value="White" />
+            
+            <Setter Property="FontSize" Value="15" />
+            <Setter Property="VerticalAlignment" Value="Center" />
+            <Setter Property="HorizontalAlignment" Value="Center" />
+
+            <Style.Triggers>
+                <DataTrigger Binding="{Binding Path=power_status}" Value="BUFFED">
+                    <Setter Property="Foreground" Value="#5bd065"/>
+                </DataTrigger>
+                <DataTrigger Binding="{Binding Path=power_status}" Value="WEAKENED">
+                    <Setter Property="Foreground" Value="Red"/>
+                </DataTrigger>
+                <DataTrigger Binding="{Binding Path=power}" Value="0">
+                    <Setter Property="Foreground" Value="Transparent"/>
+                </DataTrigger>
+            </Style.Triggers>
+        </Style>
+
+        <!-- Card name TextBlock style -->
+        <Style x:Key="CardNameStyle" TargetType="{x:Type TextBlock}">
+            <Setter Property="Foreground" Value="White" />
+            
+        </Style>
+
+        <!-- Player info TextBlock style -->
+        <Style x:Key="PlayerInfoStyle" TargetType="{x:Type TextBlock}">
+            <Setter Property="TextElement.FontFamily" Value="Fonts/#GWENT" />
+            <Setter Property="Foreground" Value="White" />
+            <Setter Property="FontSize" Value="15" />
+            <Setter Property="VerticalAlignment" Value="Bottom" />
+            <Setter Property="HorizontalAlignment" Value="Center" />
+        </Style>
+
+
     </Application.Resources>
 </Application>
