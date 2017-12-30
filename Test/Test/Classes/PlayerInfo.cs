@@ -34,7 +34,7 @@ namespace Test.Classes
             this.type = PlayerType.BLUE;
             cards = new Dictionary<byte, Card> {
                 { 1, new Card("Alzur's Thunder", 0, 0, CardPlacement.HAND) },
-                { 2, new Card("Ithlinne", 2, 0, CardPlacement.HAND) },
+                { 2, new Card("Shupe's Bizarre Adventure", 0, 0, CardPlacement.HAND) },
                 { 3, new Card("Ciri: Nova", 1, 3, CardPlacement.DECK) },
                 { 4, new Card("Royal Decree", 0, 0, CardPlacement.HAND) },
                 { 5, new Card("Reconaissance", 0, 0, CardPlacement.DECK) },

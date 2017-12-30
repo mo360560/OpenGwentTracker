@@ -29,12 +29,7 @@ namespace Test
                 1. Remove IsEnable="False" from <ItemsPresenter IsEnabled="False" />
                 2. Remove WindowStyle="None"
                 3. Remove the next line */               
-            this.MouseLeftButtonDown += delegate { this.DragMove(); };
-           
-            //ImageBrush myBrush = new ImageBrush();
-            //myBrush.ImageSource = 
-            //    new BitmapImage(new Uri(@"pack://application:,,,/Test;component/Images/bg1.png"));
-            //this.Background = myBrush;
+            MouseLeftButtonDown += delegate { DragMove(); };
         }
         public void SetPlayer(PlayerInfo player)
         {
