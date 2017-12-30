@@ -35,10 +35,7 @@ namespace Test
         {
             this.player = player;
             UsernameBox.Text = player.player_info;
-            if (player.type == PlayerType.RED)
-                background.ImageSource = new BitmapImage(new Uri(@"pack://application:,,,/Test;component/Images/bg_red.png"));
-            else background.ImageSource = new BitmapImage(new Uri(@"pack://application:,,,/Test;component/Images/bg_blue.png"));
-
+            background.ImageSource = new BitmapImage(new Uri(@"pack://application:,,,/Test;component/Images/bg1.png"));
         }
 
         public void Update()

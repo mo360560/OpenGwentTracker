@@ -9,15 +9,14 @@
         <!-- Colors -->
         <Color x:Key="TrackerWhite">#e2dedb</Color>
 
+
         <!-- Card power TextBlock style -->
         <Style x:Key="CardPowerStyle" TargetType="{x:Type TextBlock}">
             <Setter Property="TextElement.FontFamily" Value="Fonts/#GWENT" />
-            <Setter Property="Foreground" Value="#e2dedb" />
-            
+            <Setter Property="Foreground" Value="#e2dedb" />            
             <Setter Property="FontSize" Value="15" />
             <Setter Property="VerticalAlignment" Value="Center" />
             <Setter Property="HorizontalAlignment" Value="Right" />
-
             <Style.Triggers>
                 <DataTrigger Binding="{Binding Path=power_status}" Value="BUFFED">
                     <Setter Property="Foreground" Value="#5bd065"/>
@@ -33,8 +32,7 @@
 
         <!-- Card name TextBlock style -->
         <Style x:Key="CardNameStyle" TargetType="{x:Type TextBlock}">
-            <Setter Property="Foreground" Value="#e2dedb" />
-            
+            <Setter Property="Foreground" Value="#e2dedb" />            
         </Style>
 
         <!-- Player info TextBlock style -->
@@ -53,7 +51,7 @@
         </Style>
 
         <!-- Expander ControlTemplate -->
-        <!-- based on: https://docs.microsoft.com/en-us/dotnet/framework/wpf/controls/expander-styles-and-templates -->    
+        <!-- based on: https://docs.microsoft.com/en-us/dotnet/framework/wpf/controls/expander-styles-and-templates -->
         <ControlTemplate x:Key="ExpanderToggleButton" TargetType="{x:Type ToggleButton}">
             <Border x:Name="Border">
                 <Border.Background>
@@ -97,7 +95,6 @@
                 </Grid>
             </Border>
         </ControlTemplate>
-
         <Style TargetType="{x:Type Expander}" x:Key="ExpanderStyle">
             <Setter Property="Template">
                 <Setter.Value>
