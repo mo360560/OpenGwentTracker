@@ -33,14 +33,14 @@ namespace Test.Classes
             //for testing:
             this.type = PlayerType.BLUE;
             cards = new Dictionary<byte, Card> {
-                { 1, new Card("Alzur's Thunder", 0, 0, CardPlacement.HAND) },
-                { 2, new Card("Shupe's Bizarre Adventure", 0, 0, CardPlacement.HAND) },
-                { 3, new Card("Ciri: Nova", 1, 3, CardPlacement.DECK) },
-                { 4, new Card("Royal Decree", 0, 0, CardPlacement.HAND) },
-                { 5, new Card("Reconaissance", 0, 0, CardPlacement.DECK) },
-                { 6, new Card("Elven Swordmaster", 5, 6, CardPlacement.BOARD) },
-                { 7, new Card("Mandrake", 0, 0, CardPlacement.GRAVEYARD) },
-                { 8, new Card("Elven Mercenary", 0, -1, CardPlacement.BANISHED) },
+                { 1, new Card("Alzur's Thunder", 0, 0, CardColor.BRONZE, CardPlacement.HAND) },
+                { 2, new Card("Shupe's Bizarre Adventure", 0, 0, CardColor.GOLD, CardPlacement.HAND) },
+                { 3, new Card("Ciri: Nova", 1, 3, CardColor.GOLD,  CardPlacement.DECK) },
+                { 4, new Card("Vrihedd Neophyte", 10, 0, CardColor.BRONZE, CardPlacement.DECK) },
+                { 5, new Card("Reconaissance", 0, 0, CardColor.BRONZE, CardPlacement.DECK) },
+                { 6, new Card("Elven Swordmaster", 5, 6, CardColor.BRONZE, CardPlacement.BOARD) },
+                { 7, new Card("Mandrake", 0, 0, CardColor.SILVER, CardPlacement.GRAVEYARD) },
+                { 8, new Card("Elven Mercenary", 0, -1, CardColor.BRONZE, CardPlacement.BANISHED) },
             };
         }  
         public void AddCard(CardPlacement dest, byte card_ID, int template_ID)

@@ -10,6 +10,7 @@ namespace Test.Classes
     public class Card
     {
         public String name { get; set; }
+        public CardColor color { get; }
         private short base_strength, buff, armor;
         public short power { get { return (short)(base_strength + buff); } }
         public CardPlacement placement { get; set; }
@@ -28,9 +29,9 @@ namespace Test.Classes
             name = "Test"; base_strength = buff = armor = 3;            
         }
         //temporary constructor for testing:
-        public Card(String n, short bs, short b,  CardPlacement p)
+        public Card(String n, short bs, short b, CardColor c, CardPlacement p)
         {
-            name = n; base_strength = bs; buff = b; armor = 0; placement = p;
+            name = n; base_strength = bs; buff = b; armor = 0; placement = p; color = c;
         }
         public void ChangeStats(PowerChangeType change_type, short value_difference, bool ignore_armor)
         {

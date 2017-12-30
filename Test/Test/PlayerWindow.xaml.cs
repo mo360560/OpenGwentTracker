@@ -49,6 +49,7 @@ namespace Test
             ICollectionView view = CollectionViewSource.GetDefaultView(all_cards.Where(c => (displayed.Contains(c.placement))));
             view.GroupDescriptions.Add(new PropertyGroupDescription("placement"));
             view.SortDescriptions.Add(new SortDescription("placement", ListSortDirection.Ascending));
+            view.SortDescriptions.Add(new SortDescription("color", ListSortDirection.Ascending));
             view.SortDescriptions.Add(new SortDescription("power", ListSortDirection.Descending));
             CardsListBox.ItemsSource = view;
         }

@@ -66,6 +66,7 @@
     <Compile Include="Classes\LogParser.cs" />
     <Compile Include="Classes\PlayerInfo.cs" />
     <Compile Include="Classes\WindowsManager.cs" />
+    <Compile Include="Enums\CardColor.cs" />
     <Compile Include="Enums\CardPlacement.cs" />
     <Compile Include="Enums\PlayerType.cs" />
     <Compile Include="Enums\PowerChangeType.cs" />

@@ -34,7 +34,7 @@
                                 <Setter.Value>
                                     <ControlTemplate TargetType="{x:Type GroupItem}">
                                         <Expander IsExpanded="True" Style="{StaticResource ExpanderStyle}">
-                                            <Expander.Header>
+                                            <Expander.Header>                                                
                                                 <TextBlock Text="{Binding Name}" Style="{StaticResource PlacementHeaderStyle}" />                                               
                                             </Expander.Header>
                                             <ItemsPresenter IsEnabled="False" />
@@ -54,10 +54,10 @@
                                 <ColumnDefinition Width="10" />
                                 <ColumnDefinition Width="10" />
                                 <ColumnDefinition Width="Auto" />
-                            </Grid.ColumnDefinitions>
-                            <TextBlock Grid.Column="0" Text="{Binding Path=power}" Style="{StaticResource CardPowerStyle}">
-                            </TextBlock>
-                            <TextBlock Grid.Column="2" Text="{Binding Path=name}" Style="{StaticResource CardNameStyle}"/>
+                            </Grid.ColumnDefinitions>                           
+                            <TextBlock Grid.Column="0" Text="{Binding Path=power}" Style="{StaticResource CardPowerStyle}" />
+                            <TextBlock Grid.Column="2" Text="{Binding Path=name}" Style="{StaticResource CardNameStyle}" />
+
                         </Grid>
                     </StackPanel>
                 </DataTemplate>
