@@ -43,7 +43,7 @@ namespace Test
             opponent_window.SetPlayer(opponent_info);
             opponent_info.MoveCard(CardPlacement.BANISHED, 1);
             opponent_window.Update();
-            user_info = new PlayerInfo("VeryLongOpponentNick", 26, 18, 3999, PlayerType.RED, "Mystery Deck 2000");
+            user_info = new PlayerInfo("VeryLongOpponentUsernameThatDoesn'tFitInWindow", 26, 18, 3999, PlayerType.RED, "Mystery Deck 2000");
             user_window.SetPlayer(user_info);
             user_window.Update();
         }        
