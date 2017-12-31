@@ -20,8 +20,12 @@ namespace Test.Classes
 
         private long last_log_length;
 
-        public LogParser()
+        private PlayerWindow user, opponent;
+
+        public LogParser(PlayerWindow user, PlayerWindow opponent)
         {
+            this.user = user; this.opponent = opponent;
+
             log_folder =  String.Concat(Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData), @"Low\CDProjektRED\Gwent\");
            
             last_log_length = 0;

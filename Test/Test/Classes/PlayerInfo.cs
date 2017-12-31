@@ -29,18 +29,6 @@ namespace Test.Classes
         {
             this.name = name; this.level = level; this.rank = rank; this.MMR = MMR;
             this.type = type; this.deck_name = deck_name;
-
-            //for testing:
-            cards = new Dictionary<byte, Card> {
-                { 1, new Card("Alzur's Thunder", 0, 0, CardColor.BRONZE, CardPlacement.HAND) },
-                { 2, new Card("Shupe's Bizarre Adventure", 0, 0, CardColor.GOLD, CardPlacement.HAND) },
-                { 3, new Card("Ciri: Nova", 1, 3, CardColor.GOLD,  CardPlacement.DECK) },
-                { 4, new Card("Vrihedd Neophyte", 10, 0, CardColor.BRONZE, CardPlacement.DECK) },
-                { 5, new Card("Reconaissance", 0, 0, CardColor.BRONZE, CardPlacement.DECK) },
-                { 6, new Card("Elven Swordmaster", 5, 6, CardColor.BRONZE, CardPlacement.BOARD) },
-                { 7, new Card("Mandrake", 0, 0, CardColor.SILVER, CardPlacement.GRAVEYARD) },
-                { 8, new Card("Elven Mercenary", 0, -1, CardColor.BRONZE, CardPlacement.BANISHED) },
-            };
         }  
         public void AddCard(CardPlacement dest, byte card_ID, int template_ID)
         {
@@ -50,7 +38,11 @@ namespace Test.Classes
         {
             cards[card_ID].placement = dest;     
         }
-        public void ChangeStats(byte card_ID, PowerChangeType change_type, short value_difference, bool ignore_armor)
+        public void TransformCard(byte card_ID, int template_ID)
+        {
+            cards[card_ID] = new Card(template_ID, cards[card_ID].placement);
+        }
+        public void ChangeCardStats(byte card_ID, PowerChangeType change_type, short value_difference, bool ignore_armor)
         {
             cards[card_ID].ChangeStats(change_type, value_difference, ignore_armor);
         }

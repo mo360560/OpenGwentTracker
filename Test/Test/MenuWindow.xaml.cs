@@ -30,22 +30,11 @@ namespace Test
         public MenuWindow()
         {
             InitializeComponent();
-
             user_window = new PlayerWindow();
             opponent_window = new PlayerWindow();
             windows_manager = new WindowsManager(this, user_window, opponent_window);
-            windows_manager.SetInUse(this, true);            
-
-            log_parser = new LogParser();
-            //log_parser.Parse();
-
-            opponent_info = new PlayerInfo("Jane", 26, 18, 3999, PlayerType.BLUE, "Nova deck #1");
-            opponent_window.SetPlayer(opponent_info);
-            opponent_info.MoveCard(CardPlacement.BANISHED, 1);
-            opponent_window.Update();
-            user_info = new PlayerInfo("VeryLongOpponentUsernameThatDoesn'tFitInWindow", 26, 18, 3999, PlayerType.RED, "Mystery Deck 2000");
-            user_window.SetPlayer(user_info);
-            user_window.Update();
+            windows_manager.SetInUse(this, true);
+            log_parser = new LogParser(user_window, opponent_window);
         }        
     }
 }

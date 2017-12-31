@@ -29,7 +29,7 @@ namespace Test
             /*  To disable the ability to drag the window by clicking anywhere,
                 1. Remove IsEnabled="False" from <ItemsPresenter IsEnabled="False" />
                 2. Remove WindowStyle="None"
-                3. Remove the next line */               
+                3. Remove the next line */
             MouseLeftButtonDown += delegate { DragMove(); };
             displayed = new HashSet<CardPlacement> {
                 //CardPlacement.HAND, CardPlacement.BOARD,
@@ -43,7 +43,27 @@ namespace Test
             CreateBorder(player.type);
         }
         public void SetDisplayed(HashSet<CardPlacement> displayed) => this.displayed = displayed;
-        public void Update()
+        public void AddCard(CardPlacement dest, byte card_ID, int template_ID)
+        {
+            player.AddCard(dest, card_ID, template_ID);
+            Update();
+        }
+        public void MoveCard(CardPlacement dest, byte card_ID)
+        {
+            player.MoveCard(dest, card_ID);
+            Update();
+        }
+        public void TransformCard(byte card_ID, int template_ID)
+        {
+            player.TransformCard(card_ID, template_ID);
+            Update();
+        }
+        public void ChangeCardStats(byte card_ID, PowerChangeType change_type, short value_difference, bool ignore_armor)
+        {
+            player.ChangeCardStats(card_ID, change_type, value_difference, ignore_armor);
+            Update();
+        }
+        private void Update()
         {
             List<Card> all_cards = player.cards_list;
             ICollectionView view = CollectionViewSource.GetDefaultView(all_cards.Where(c => (displayed.Contains(c.placement))));
