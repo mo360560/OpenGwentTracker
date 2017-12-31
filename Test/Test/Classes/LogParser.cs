@@ -29,6 +29,8 @@ namespace Test.Classes
             this.log_folder =  String.Concat(Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData), @"Low\CDProjektRED\Gwent\");
            
             last_log_length = 0;
+
+            //Thread log_parser = new Thread(new ThreadStart(CheckLogChange));
             Timer timer = new Timer(1000);
             timer.Elapsed += CheckLogChange;
             timer.Start();
@@ -77,7 +79,7 @@ namespace Test.Classes
 
         public String GetUserName()
         {
-            return "ataalik";
+            return "FoxPanda";
         }
 
         public void Parse(String to_parse)
@@ -183,8 +185,11 @@ namespace Test.Classes
                         //If the players name is equal to users name
                         if (name.Equals(GetUserName()))
                         {
-                            playerToAdd = new PlayerInfo(name, level, rank, mmr, Enums.PlayerType.BLUE);
-                            user.SetPlayer(playerToAdd);
+                            playerToAdd = new PlayerInfo(name, level, rank, mmr, Enums.PlayerType.BLUE, "deck name"); //@TODO actual deck name
+                            user.Dispatcher.Invoke(() =>
+                            {
+                                user.SetPlayer(playerToAdd);
+                            });
 
                             //Assign P1-2 variables
                             if (no.Equals("1"))
