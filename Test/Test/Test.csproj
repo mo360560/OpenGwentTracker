@@ -66,8 +66,11 @@
     <Compile Include="Classes\LogParser.cs" />
     <Compile Include="Classes\PlayerInfo.cs" />
     <Compile Include="Classes\WindowsManager.cs" />
+    <Compile Include="Enums\CardColor.cs" />
     <Compile Include="Enums\CardPlacement.cs" />
+    <Compile Include="Enums\PlayerType.cs" />
     <Compile Include="Enums\PowerChangeType.cs" />
+    <Compile Include="Enums\PowerStatus.cs" />
     <Compile Include="MenuWindow.xaml.cs">
       <DependentUpon>MenuWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
@@ -98,6 +101,7 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
+    <Resource Include="Fonts\hinted-GWENT-ExtraBold.ttf" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -108,6 +112,25 @@
       <SubType>Designer</SubType>
     </None>
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Resource Include="Images\bg1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\border_corner_LU_red.png" />
+    <Resource Include="Images\border_horizontal_red.png" />
+    <Resource Include="Images\border_vertical_red.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\border_corner_LU_blue.png" />
+    <Resource Include="Images\border_horizontal_blue.png" />
+    <Resource Include="Images\border_vertical_blue.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\border_corner_LL_blue.png" />
+    <Resource Include="Images\border_corner_LL_red.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\bg2.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

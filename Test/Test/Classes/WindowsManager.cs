@@ -74,7 +74,6 @@ namespace Test.Classes
         {
             settings[w].in_use = value;
         }
-
         private class WindowSettings
         {
             public bool in_use = true;

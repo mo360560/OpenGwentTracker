@@ -5,10 +5,27 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         mc:Ignorable="d"
         WindowStyle="None"
-        Title="PlayerWindow" SizeToContent="WidthAndHeight" ResizeMode="NoResize">
-    <Grid>
-        
-        <ListBox Name="CardsListBox" ItemsSource="{Binding Path=placement}">
+        Title="PlayerWindow" SizeToContent="WidthAndHeight" MinWidth="195" ResizeMode="NoResize">
+
+    <Grid Name="WindowGrid">
+        <Grid.Background>
+            <ImageBrush ImageSource="/Test;component/Images/bg2.png" AlignmentX="Left" 
+          AlignmentY="Top" Stretch="None" />
+        </Grid.Background>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="7" />
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="7" />
+            <ColumnDefinition Width="Auto" />
+            <ColumnDefinition Width="7" />
+        </Grid.ColumnDefinitions>
+        <TextBlock Name="Row1" Grid.Row="0" Grid.Column="1" />
+        <TextBlock Grid.Row="0" Grid.Column="1" Margin="10,15,10,0" Name="UsernameBox" Background="Transparent" Style="{StaticResource PlayerInfoStyle}"/>
+        <ListBox Grid.Row="1" Grid.Column="1" Name="CardsListBox" ItemsSource="{Binding Path=placement}" 
+                 Background="Transparent" BorderBrush="Transparent">
             <ListBox.GroupStyle>
                 <GroupStyle>
                     <GroupStyle.ContainerStyle>
@@ -16,11 +33,9 @@
                             <Setter Property="Template">
                                 <Setter.Value>
                                     <ControlTemplate TargetType="{x:Type GroupItem}">
-                                        <Expander IsExpanded="True" >
-                                            <Expander.Header>
-                                                <StackPanel >
-                                                    <TextBlock Text="{Binding Name}" />
-                                                </StackPanel>
+                                        <Expander IsExpanded="True" Style="{StaticResource ExpanderStyle}">
+                                            <Expander.Header>                                                
+                                                <TextBlock Text="{Binding Name}" Style="{StaticResource PlacementHeaderStyle}" />                                               
                                             </Expander.Header>
                                             <ItemsPresenter IsEnabled="False" />
                                         </Expander>
@@ -36,11 +51,13 @@
                     <StackPanel>
                         <Grid>
                             <Grid.ColumnDefinitions>
-                                <ColumnDefinition Width="20" />
+                                <ColumnDefinition Width="10" />
+                                <ColumnDefinition Width="10" />
                                 <ColumnDefinition Width="Auto" />
-                            </Grid.ColumnDefinitions>
-                            <TextBlock Grid.Column="0" Text="{Binding Path=power}" />
-                            <TextBlock Grid.Column="1" Text="{Binding Path=name}" />
+                            </Grid.ColumnDefinitions>                           
+                            <TextBlock Grid.Column="0" Text="{Binding Path=power}" Style="{StaticResource CardPowerStyle}" />
+                            <TextBlock Grid.Column="2" Text="{Binding Path=name}" Style="{StaticResource CardNameStyle}" />
+
                         </Grid>
                     </StackPanel>
                 </DataTemplate>
