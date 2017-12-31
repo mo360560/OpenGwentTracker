@@ -16,13 +16,11 @@ using System.Windows.Shapes;
 using Test.Classes;
 using System.Runtime.InteropServices;
 using System.Threading;
-using Test.Enums; //@TODO For testing, may not be needed later
 
 namespace Test
 {
     public partial class MenuWindow : Window
     {
-        PlayerInfo user_info, opponent_info;
         PlayerWindow user_window, opponent_window;
         WindowsManager windows_manager;
         LogParser log_parser;
