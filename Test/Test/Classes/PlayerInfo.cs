@@ -20,7 +20,7 @@ namespace Test.Classes
         public String player_info {
             get {
                 if (type == PlayerType.RED)
-                    return name + " " + MMR + "MMR";
+                    return name;
                 else return deck_name;
             }
         }
@@ -31,7 +31,6 @@ namespace Test.Classes
             this.type = type; this.deck_name = deck_name;
 
             //for testing:
-            this.type = PlayerType.BLUE;
             cards = new Dictionary<byte, Card> {
                 { 1, new Card("Alzur's Thunder", 0, 0, CardColor.BRONZE, CardPlacement.HAND) },
                 { 2, new Card("Shupe's Bizarre Adventure", 0, 0, CardColor.GOLD, CardPlacement.HAND) },
