@@ -32,7 +32,14 @@ namespace Test.Classes
         {
             this.name = name; this.level = level; this.rank = rank; this.MMR = MMR;
             this.type = type; this.deck_name = deck_name;
-        }  
+        }
+
+        public PlayerInfo(String name, byte level, byte rank, int MMR, PlayerType type)
+        {
+            this.name = name; this.level = level; this.rank = rank; this.MMR = MMR;
+            this.type = type;
+        }
+
         public void AddCard(CardPlacement dest, byte card_ID, int template_ID)
         {
             cards.Add(card_ID, new Card(template_ID, dest));

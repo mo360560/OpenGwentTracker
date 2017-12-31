@@ -20,13 +20,13 @@ namespace Test.Classes
 
         private long last_log_length;
 
-        private PlayerWindow user, opponent;
+        private PlayerWindow user, opponent, player_one, player_two;
 
         public LogParser(PlayerWindow user, PlayerWindow opponent)
         {
             this.user = user; this.opponent = opponent;
 
-            log_folder =  String.Concat(Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData), @"Low\CDProjektRED\Gwent\");
+            this.log_folder =  String.Concat(Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData), @"Low\CDProjektRED\Gwent\");
            
             last_log_length = 0;
             Timer timer = new Timer(1000);
@@ -75,6 +75,11 @@ namespace Test.Classes
             }
         }
 
+        public String GetUserName()
+        {
+            return "ataalik";
+        }
+
         public void Parse(String to_parse)
         {
 
@@ -85,6 +90,8 @@ namespace Test.Classes
             {
                 if (line.Contains("ActionManager"))
                 {
+                    Console.WriteLine("lol");
+
                     String actionType = "";
 
                     int i = ACTION_TYPE_START_POS;
@@ -130,6 +137,14 @@ namespace Test.Classes
                         
                         Console.WriteLine("SetupPlayerAction");
 
+                        Match match;
+                        PlayerInfo playerToAdd;
+                        String no = String.Empty;
+                        String name = String.Empty;
+                        byte level = 0;
+                        byte rank = 0;
+                        int mmr = 0;
+
                         //General Player Info
                         Regex no_regex = new Regex("Player: P(?<no>[1-2]),"); //Player no as in P{1} or P{2}
                         Regex name_regex = new Regex("Name: (?<name>[a-zA-Z0-9 ]*),");//Players GoG name
@@ -142,18 +157,19 @@ namespace Test.Classes
                         //TODO: MMR is supposed to be here but it is not consistently written to log. It can be acquired with an API call 
 
 
-                        Match match = no_regex.Match(line);
+                        match = no_regex.Match(line);
                         if (match.Success)
-                            Console.WriteLine("Player no {0}", match.Groups["no"].Value);
+                            no = match.Groups["no"].Value;
+
                         match = name_regex.Match(line);
                         if (match.Success)
-                            Console.WriteLine("Name {0}", match.Groups["name"].Value);
+                            name = match.Groups["name"].Value;
                         match = level_regex.Match(line);
                         if (match.Success)
-                            Console.WriteLine("Level {0}", match.Groups["level"].Value);
+                            level = Byte.Parse(match.Groups["level"].Value);
                         match = rank_regex.Match(line);
                         if (match.Success)
-                            Console.WriteLine("Rank {0}", match.Groups["rank"].Value);
+                            rank = Byte.Parse(match.Groups["rank"].Value);
                         match = avatar_regex.Match(line);
                         if (match.Success)
                             Console.WriteLine("Avatar ID {0}", match.Groups["avatar"].Value);
@@ -163,7 +179,41 @@ namespace Test.Classes
                         match = title_regex.Match(line);
                         if (match.Success)
                             Console.WriteLine("Title ID {0}", match.Groups["title"].Value);
-                    }else if (actionType.Equals("SpawnCardsAction"))
+
+                        //If the players name is equal to users name
+                        if (name.Equals(GetUserName()))
+                        {
+                            playerToAdd = new PlayerInfo(name, level, rank, mmr, Enums.PlayerType.BLUE);
+                            user.SetPlayer(playerToAdd);
+
+                            //Assign P1-2 variables
+                            if (no.Equals("1"))
+                            {
+                                player_one = user;
+                                player_two = opponent;
+                            }
+                            else
+                            {
+                                player_one = opponent;
+                                player_two = user;
+                            }
+                        }else
+                        {
+                            playerToAdd = new PlayerInfo(name, level, rank, mmr, Enums.PlayerType.RED);
+                            if (no.Equals("1"))
+                            {
+                                player_one = opponent;
+                                player_two = user;
+
+                            }
+                            else
+                            {
+                                player_one = user;
+                                player_two = opponent;
+                            }
+                        }
+                    }
+                    else if (actionType.Equals("SpawnCardsAction"))
                     {
 
 
