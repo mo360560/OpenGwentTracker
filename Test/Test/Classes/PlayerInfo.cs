@@ -7,15 +7,15 @@ using Test.Enums;
 
 namespace Test.Classes
 {
-    using Dict = Dictionary<byte, Card>;
     public class PlayerInfo
-    {        
-        private String name;        
-        private byte level, rank;
-        private int MMR;
-        public PlayerType type { get; }
-        private String deck_name;
-        private Dictionary<byte, Card> cards;
+    {
+        public String name { get; set; }
+        public byte level { get; set; }
+        public byte rank { get; set; }
+        public short MMR { get; set; }
+        public PlayerType type { get; set;  }
+        public String deck_name { get; set; }
+        private Dictionary<byte, Card> cards = new Dictionary<byte, Card>();
         public List<Card> cards_list => cards.Values.ToList();
         public String player_info {
             get {
@@ -26,18 +26,6 @@ namespace Test.Classes
                 if (info.Length > 16) info = info.Substring(0, 14) + "...";
                 return info;
             }
-        }
-
-        public PlayerInfo(String name, byte level, byte rank, int MMR, PlayerType type, String deck_name)
-        {
-            this.name = name; this.level = level; this.rank = rank; this.MMR = MMR;
-            this.type = type; this.deck_name = deck_name;
-        }
-
-        public PlayerInfo(String name, byte level, byte rank, int MMR, PlayerType type)
-        {
-            this.name = name; this.level = level; this.rank = rank; this.MMR = MMR;
-            this.type = type;
         }
 
         public void AddCard(CardPlacement dest, byte card_ID, int template_ID)
