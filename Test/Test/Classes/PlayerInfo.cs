@@ -19,9 +19,12 @@ namespace Test.Classes
         public List<Card> cards_list => cards.Values.ToList();
         public String player_info {
             get {
+                String info;
                 if (type == PlayerType.RED)
-                    return name;
-                else return deck_name;
+                    info = name;
+                else info = deck_name;
+                if (info.Length > 16) info = info.Substring(0, 14) + "...";
+                return info;
             }
         }
 

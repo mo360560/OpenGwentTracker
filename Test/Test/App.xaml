@@ -33,7 +33,7 @@
         <Style x:Key="PlayerInfoStyle" TargetType="{x:Type TextBlock}">
             <Setter Property="TextElement.FontFamily" Value="Fonts/#GWENT" />
             <Setter Property="Foreground" Value="#e2dedb" />
-            <Setter Property="FontSize" Value="15" />
+            <Setter Property="FontSize" Value="14" />
             <Setter Property="VerticalAlignment" Value="Bottom" />
             <Setter Property="HorizontalAlignment" Value="Center" />
         </Style>
